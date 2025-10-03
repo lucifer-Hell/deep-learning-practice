@@ -1,3 +1,5 @@
+# This is a very outof scope and hard level stuff we can omit as derivation of it is not really necesssary 
+
 import numpy as np
 class NN :
 
