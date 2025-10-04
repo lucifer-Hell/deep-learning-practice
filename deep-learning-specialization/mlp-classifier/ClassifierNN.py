@@ -2,9 +2,9 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
-class NN_torch(nn.Module):
+class ClassifierNN(nn.Module):
     def __init__(self,hidden_layers:list[int],input_parameters_len:int ,output_size=1, learning_rate=0.1):
-        super(NN_torch, self).__init__()   # ✅ add this
+        super(ClassifierNN, self).__init__()   # ✅ add this
         layers=[]
         input_dim=input_parameters_len
         for hidden_dim in hidden_layers:
@@ -30,6 +30,9 @@ class NN_torch(nn.Module):
             loss.backward()
             # udpate the wts 
             self.optimizer.step()
+            
+            print(f"Epoch {i+1}, Loss: {loss.item():.4f}")   # ✅ show total loss
+
 
     def test(self,x,y):
         with torch.no_grad():
@@ -39,5 +42,3 @@ class NN_torch(nn.Module):
                 print("correct prediction")
             else: 
                 print("wrong prediction ")
-
-
